@@ -1,0 +1,19 @@
+version: '3.3'
+services:
+  laravelmysql:
+    image: mysql:5.7
+    restart: always
+    container_name: laravelmysql
+    environment:
+      MYSQL_DATABASE: 'laravel'
+      MYSQL_ROOT_PASSWORD: 'DSSIatUBU'
+    ports:
+      - '3306:3306'
+    expose:
+      - '3306'
+    volumes:
+      - mysqldata:/var/lib/mysql
+networks:
+    default:
+        name: laravelnetwork
+        external: true
