@@ -63,7 +63,6 @@ docker exec -it laravelmysql mysql -uroot -p
 2. configuration: [.env](./.env)
 
 ```
-### mysql
 DB_CONNECTION=mysql
 DB_HOST=127.0.0.1
 DB_PORT=3306
@@ -80,16 +79,83 @@ file: [docker-compose.yml](./docker-compose.yml)
 docker-compose up
 ```
 
-## 2.3 start `migrate`
+### 2.3 start `migrate`
 
 ```
 php artisan migrate
 ```
 
-## 2.4 start `serve`
+### 2.4 start `serve`
 
 ```
 php artisan serve
 ```
 
-## 2.5 open website [http://127.0.0.1:8000](http://127.0.0.1:8000)
+### 2.5 open website [http://127.0.0.1:8000](http://127.0.0.1:8000)
+
+## 3. add tailwindcss
+
+ref: https://tailwindcss.com/docs/guides/laravel
+
+### 3.1 install tailwindcss
+
+```
+npm install -D tailwindcss postcss autoprefixer
+npx tailwindcss init -p
+```
+
+### 3.2 configure `tailwind.config.js`
+
+```js
+/** @type {import('tailwindcss').Config} */
+module.exports = {
+  content: [
+    "./resources/**/*.blade.php",
+    "./resources/**/*.js",
+    "./resources/**/*.vue",
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
+
+### 3.3 update `app.css`
+
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+### 3.4 update `app.blade.php`
+
+```html
+<head>
+
+    @vite('resources/css/app.css)
+</head>
+```
+
+### 3.5 start building
+
+```
+npm run dev
+```
+
+### 3.6 start php artisan serve
+
+```
+php artisan serve
+```
+
+### 3.7 faculty webpage
+
+* understanding page layout https://www.sci.ubu.ac.th/ 
+* separate views/components
+
+  * welcome.blade.php 
+  * components/navbar.blade.php 
+  * components/carousel.blade.php
+
