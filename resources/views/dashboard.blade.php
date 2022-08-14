@@ -15,14 +15,14 @@
     </head>
     <body>
 
-        @include("components/navbar")
+        @include("components/usernavbar")
 
         @include("components/numbers")
 
         @include("components/carousel")
 
         <div class="grid bg-slate-100 h-screen content-center text-center">
-            main
+            Contents for members only!!!
         </div>
 
     </body>

@@ -159,3 +159,51 @@ php artisan serve
   * components/navbar.blade.php 
   * components/carousel.blade.php
 
+## 4. view hierachy
+
+* add nested componnts
+  * components/header.blade.php
+  * components/numbers.blade.php
+* passing data to Route::get()
+* rendering associative array with foreach
+
+## 5. Register Login
+
+### 5.1 install breeze for composer
+
+```
+composer require laravel/breeze --dev
+```
+
+### 5.2 install breeze for the project
+
+```
+php artisan breeze:install
+php artisan migrate
+npm install
+```
+
+### 5.3 start server
+
+```
+php artisan serve
+```
+
+and 
+
+```
+npm run dev
+```
+
+### 5.4 update `routes/web.php`
+
+### 5.5 update `dashboard.blade.php`
+
+### 5.6 condition the login register buttons 
+
+### 5.7 add components
+
+* components/usernavbar.blade.php
+* components/userheader.blade.php
+* components/user.blade.php
+
