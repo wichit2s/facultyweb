@@ -207,3 +207,93 @@ npm run dev
 * components/userheader.blade.php
 * components/user.blade.php
 
+## 6 CRUD 
+
+### 6.1 create `dashboard` layouts
+
+* create [views/layouts/dashboard.blade.php](./resources/views/layouts/dashboaard.blade.php)
+
+* update [views/dashboard.blade.php](./resources/views/dashboard.blade.php)
+
+
+### 6.2 setup create table `post`
+
+``` 
+php artisan migrate
+php artisan make:migration create_posts_table --create=posts
+```
+
+### 6.3 update the migration file
+
+```php
+    public function up()
+    {
+        Schema::create('posts', function (Blueprint $table) {
+            $table->id();
+            $table->string('title');
+            $table->text('detail');
+            $table->string('image');
+            $table->timestamps();
+        });
+    }
+```
+
+### 6.3 migrate
+
+```
+php artisan migrate
+```
+
+### 6.4 add resource route to `routes/web.php`
+
+```php
+use App\Http\Controllers\PostController;
+
+Route::resource('posts', PostController::class);
+```
+
+### 6.5 add controller and model 
+
+```
+php artisan make:controller PostController --resource --model=Post
+```
+
+check route list with:
+
+```
+php artisan route:list
+```
+
+update model `app/Models/Post.php`
+
+```php
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+
+class Post extends Model
+{
+    use HasFactory;
+    protected $fillable = [ 'title', 'detail', 'image' ];
+}
+```
+
+### 6.6 edit `app/Http/Controllers/PostController.php`
+
+[app/Http/Controllers/PostController.php)](./app/Http/Controllers/PostController.php)
+
+
+### 6.7 create and edit files
+
+* [resources/views/posts/index.blade.php](./resources/views/posts/index.blade.php)
+* [resources/views/posts/create.blade.php](./resources/views/posts/create.blade.php)
+
+## Exercise
+
+* modify page 'http://localhost:8000/posts'
+* modify create page
+
+~ that's it ~
