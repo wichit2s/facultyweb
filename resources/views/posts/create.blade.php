@@ -32,13 +32,13 @@
         <div>
             <div>
                 <strong>รายละเอียด:</strong>
-                <textarea class="form-control" style="height:150px;" name="detail" placeholder="รายละเอียด"></textarea>
+                <textarea style="height:150px;" name="detail" placeholder="รายละเอียด"></textarea>
             </div>
         </div>
         <div>
             <div>
                 <strong>ภาพ:</strong>
-                <input type="file" name="image" class="form-control" placeholder="image">
+                <input type="file" name="image" placeholder="image">
             </div>
         </div>
         <div>
